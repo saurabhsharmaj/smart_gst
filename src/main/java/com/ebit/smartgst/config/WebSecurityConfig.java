@@ -68,11 +68,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/dept/**").hasAnyAuthority("ADMIN")
             .anyRequest().authenticated()
             .and()
-            .formLogin().permitAll()
-            .and()
             .logout().permitAll()
             .and()
             .exceptionHandling().accessDeniedPage("/403")
+            .and()
+            .formLogin().permitAll()
             ;
     }
     

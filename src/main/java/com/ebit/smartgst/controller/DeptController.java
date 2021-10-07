@@ -3,6 +3,8 @@ package com.ebit.smartgst.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ebit.smartgst.model.Dept;
+import com.ebit.smartgst.model.DeptDTO;
 import com.ebit.smartgst.repo.DeptRepository;
+import com.ebit.smartgst.utils.GstUtils;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
@@ -51,6 +55,13 @@ public class DeptController {
 	@PostMapping("/add")
 	public String addEmplyee(@RequestBody Dept emp) {
 		deptRepo.save(emp);
+		return "saved Successfullly";
+
+	}
+	
+	@PostMapping("/add/dept")
+	public String addDept(@Valid @RequestBody DeptDTO deptDTO) {
+		deptRepo.save(GstUtils.deptMapper(deptDTO));
 		return "saved Successfullly";
 
 	}
