@@ -6,7 +6,7 @@ public class DeptDTO {
 
 	Long id;
 	
-	@NotNull(message = "Name cannot blank.")
+	@NotNull(message = "Name cannot be blank.")
 	String name;
 
 	

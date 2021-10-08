@@ -60,7 +60,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.httpBasic().and()
+        .authorizeRequests()
         	.antMatchers(AUTH_WHITELIST).permitAll() 
         	.antMatchers("/swagger-ui/**", "/smartgst-openapi/**").permitAll()
             .antMatchers("/").hasAnyAuthority("USER", "ADMIN")
