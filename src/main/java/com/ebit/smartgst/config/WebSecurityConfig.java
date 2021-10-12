@@ -73,7 +73,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .exceptionHandling().accessDeniedPage("/403")
             .and()
-            .formLogin().permitAll()
+            .formLogin().permitAll().and()
+            .csrf().disable()
             ;
     }
     

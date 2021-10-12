@@ -3,8 +3,6 @@ package com.ebit.smartgst.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -59,8 +57,8 @@ public class DeptController {
 
 	}
 	
-	@PostMapping("/add/dept")
-	public String addDept(@Valid @RequestBody DeptDTO deptDTO) {
+	@PostMapping(path = "/savedept")
+	public String addDeptViaDto(@RequestBody DeptDTO deptDTO) {
 		deptRepo.save(GstUtils.deptMapper(deptDTO));
 		return "saved Successfullly";
 
