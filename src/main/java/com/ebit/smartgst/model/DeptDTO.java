@@ -1,12 +1,12 @@
 package com.ebit.smartgst.model;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 public class DeptDTO {
 
 	Long id;
 	
-	@NotNull(message = "Name cannot be blank.")
+	@NotBlank(message = "Name cannot be blank.")
 	String name;
 
 	
